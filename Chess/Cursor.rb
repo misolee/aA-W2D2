@@ -47,31 +47,6 @@ class Cursor
     key = KEYMAP[read_char]
     handle_key(key)
   end
-
-  def render
-    puts "--------------------------".colorize(:red)
-    puts "Current state of the board".colorize(:red)
-    puts "Cursor located at #{cursor_pos}".colorize(:red)
-    
-    board.grid.each_with_index do |row, idx1|
-      row.each_with_index do |el, idx2|
-        if [idx1, idx2] == @cursor_pos
-          print el.inspect.colorize(:green).colorize(:background => :black) + " ".colorize(:background => :black) + " "
-        else
-          print el.inspect.colorize(:black) + "  "
-        end
-      end
-      puts
-    end
-  end
-  
-  def test_loop
-    @x = false
-    until @x == true
-      self.get_input
-      render
-    end
-  end
   
   private
 
@@ -123,7 +98,7 @@ class Cursor
     when :ctrl_c
       Process.exit
     when :escape
-      @x = true
+      return true
     end
   end
 
