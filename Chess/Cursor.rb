@@ -49,20 +49,17 @@ class Cursor
   end
 
   def render
-    puts "Current state of the board"
-    # p board.grid[0]
-    # p board.grid[1]
-    # p board.grid[2]
-    # p board.grid[3]
-    # p board.grid[4]
-    # p board.grid[5]
-    # p board.grid[6]
-    # p board.grid[7]
-    # p "-----------------------"
+    puts "--------------------------".colorize(:red)
+    puts "Current state of the board".colorize(:red)
+    puts "Cursor located at #{cursor_pos}".colorize(:red)
     
-    board.grid.each do |row|
-      row.each do |pos|
-        print pos.inspect + "  "
+    board.grid.each_with_index do |row, idx1|
+      row.each_with_index do |el, idx2|
+        if [idx1, idx2] == @cursor_pos
+          print el.inspect.colorize(:green).colorize(:background => :black) + " ".colorize(:background => :black) + " "
+        else
+          print el.inspect.colorize(:black) + "  "
+        end
       end
       puts
     end
@@ -139,7 +136,6 @@ class Cursor
     col_pos = 7 if col_pos == -1
     new_pos = [row_pos, col_pos]
     @cursor_pos = new_pos if board.valid_pos?(new_pos)
-    p @cursor_pos
   end
   
   # def render

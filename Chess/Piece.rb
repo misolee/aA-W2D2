@@ -21,6 +21,6 @@ class NullPiece < Piece
   end
   
   def inspect
-    "☐"
+    "🥡"
   end
 end
