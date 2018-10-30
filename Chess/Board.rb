@@ -1,5 +1,6 @@
 require_relative "Piece"
 require "byebug"
+require_relative "cursor"
 
 class Board
   

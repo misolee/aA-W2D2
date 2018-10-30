@@ -49,8 +49,23 @@ class Cursor
   end
 
   def render
-    board.grid
-    # @cursor_pos.colorize(:red)
+    puts "Current state of the board"
+    # p board.grid[0]
+    # p board.grid[1]
+    # p board.grid[2]
+    # p board.grid[3]
+    # p board.grid[4]
+    # p board.grid[5]
+    # p board.grid[6]
+    # p board.grid[7]
+    # p "-----------------------"
+    
+    board.grid.each do |row|
+      row.each do |pos|
+        print pos.inspect + "  "
+      end
+      puts
+    end
   end
   
   def test_loop
