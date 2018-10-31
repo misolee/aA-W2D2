@@ -22,13 +22,13 @@ class Board
     0.upto(1) do |i|
       @grid[i].each_index do |j|
         pos = [i, j]
-        self[pos] = Piece.new
+        self[pos] = Piece.new([i, j], @grid)
       end
     end
     6.upto(7) do |i|
       @grid[i].each_index do |j|
         pos = [i, j]
-        self[pos] = Piece.new
+        self[pos] = Piece.new([i, j], @grid)
       end
     end
   end

@@ -9,6 +9,7 @@ class Display
   end
   
   def render
+    system('clear')
     puts "--------------------------".colorize(:red)
     puts "Current state of the board".colorize(:red)
     puts "Cursor located at #{@cursor.cursor_pos}".colorize(:red)
